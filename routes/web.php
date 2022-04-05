@@ -263,10 +263,11 @@ Route::get('/download/{task}/{status?}', function (Task $task, $status = null) {
             break;
     }
     foreach ($file as $key => $value) {
-        $location = $folder . "/" . $value->name;
+        // $location = $folder . "/" . $value->name;
+        $location = public_path($folder . DIRECTORY_SEPARATOR . $value->name);
         $fileName = $key + 1 . "." . $value->title;
         // return file_exists(public_path($location));
-        $zip->addFile(public_path($location), $fileName);
+        $zip->addFile($location, $fileName);
     }
     // Adding file: second parameter is what will the path inside of the archive
     // So it will create another folder called "storage/" inside ZIP, and put the file there.
