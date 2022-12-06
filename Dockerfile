@@ -23,5 +23,6 @@ COPY AuthenticatesUsers.php  ./vendor/laravel/ui/auth-backend/
 
 RUN composer update
 
+RUN chmod 777 start.sh
 
 CMD [ "./start.sh" ]

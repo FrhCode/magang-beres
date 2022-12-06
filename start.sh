@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 echo "Waiting for db"
 ./wait-for-it.sh database:3306
