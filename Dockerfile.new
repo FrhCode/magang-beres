@@ -1,0 +1,30 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y \
+	software-properties-common
+
+RUN add-apt-repository ppa:ondrej/php
+RUN apt-get update && apt-get install -y \
+	php7.4 \
+	php7.4-mysql \
+	php7.4-pdo \
+	php7.4-mbstring \
+	curl \
+	unzip
+RUN apt install dos2unix 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /app
+
+COPY composer.json .
+RUN composer install --no-scripts --no-autoloader
+
+
+COPY . .
+COPY AuthenticatesUsers.php  ./vendor/laravel/ui/auth-backend/
+RUN composer update
+RUN chmod 777 start.sh
+
+RUN dos2unix start.sh
+
+CMD [ "./start.sh" ]

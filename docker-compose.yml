@@ -29,16 +29,5 @@ services:
     entrypoint: ./start.sh
     # command: tail -F /dev/null
 
-  node:
-    build:
-      context: .
-      dockerfile: Dockerfile.node
-    ports:
-      - 3000:3000
-    volumes:
-    - ./:/app
-    - /app/node_modules
-    - /app/vendor
-
 
 
