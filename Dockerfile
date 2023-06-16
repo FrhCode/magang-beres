@@ -23,11 +23,9 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer install --no-scripts --no-autoloader
 
 
-COPY . .
+COPY --chmod=765 . .
 COPY AuthenticatesUsers.php  ./vendor/laravel/ui/auth-backend/
 RUN composer update
-
-USER root
 
 RUN chmod 777 /app/start.sh
 RUN chmod 777 /app/wait-for-it.sh
