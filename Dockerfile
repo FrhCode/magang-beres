@@ -27,6 +27,8 @@ COPY . .
 COPY AuthenticatesUsers.php  ./vendor/laravel/ui/auth-backend/
 RUN composer update
 
+USER root
+
 RUN chmod 777 /app/start.sh
 RUN chmod 777 /app/wait-for-it.sh
 
