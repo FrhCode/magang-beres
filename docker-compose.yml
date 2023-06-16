@@ -26,8 +26,8 @@ services:
     - ./:/app
     - /app/node_modules
     - /app/vendor
-    entrypoint: ./start.sh
-    # command: tail -F /dev/null
+    # entrypoint: ./start.sh
+    command: tail -F /dev/null
 
 
 
