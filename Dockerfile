@@ -26,11 +26,12 @@ RUN composer install --no-scripts --no-autoloader
 
 COPY . .
 COPY AuthenticatesUsers.php  ./vendor/laravel/ui/auth-backend/
-RUN chmod -R 777 /app
-
 RUN composer update
 
-RUN dos2unix /app/start.sh
-RUN dos2unix /app/wait-for-it.sh
+RUN chmod 777 start.sh
+RUN chmod 777 wait-for-it.sh
+
+RUN dos2unix start.sh
+RUN dos2unix wait-for-it.sh
 
 CMD [ "./start.sh" ]
