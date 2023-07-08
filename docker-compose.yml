@@ -16,12 +16,10 @@ services:
       - .env
     ports:
       - 8000:8000
-    # volumes:
-    # - ./:/app
-    # - /app/node_modules
-    # - /app/vendor
-    # - /app/start.sh
-    # - /app/wait-for-it.sh
+    volumes:
+    - .:/app
+    - /app/node_modules
+    - /app/vendor
     entrypoint: ./start.sh
 
 

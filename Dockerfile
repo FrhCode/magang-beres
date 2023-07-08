@@ -21,9 +21,6 @@ COPY . .
 COPY AuthenticatesUsers.php  ./vendor/laravel/ui/auth-backend/
 RUN composer update
 
-RUN chmod 777 start.sh
-RUN chmod 777 wait-for-it.sh
-
 RUN dos2unix start.sh
 RUN dos2unix wait-for-it.sh
 
