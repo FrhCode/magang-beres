@@ -20,9 +20,7 @@ services:
     - .:/app
     - /app/node_modules
     - /app/vendor
-    # entrypoint: ./start.sh
-    command: yes "y" | ./start.sh
-
+    entrypoint: ./start.sh
 
 
 
