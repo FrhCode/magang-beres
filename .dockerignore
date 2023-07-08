@@ -1,0 +1,14 @@
+# Ignore default Laravel directories
+vendor/
+node_modules/
+public/storage/
+
+# Ignore development-specific files
+.env
+.env.*
+._*
+.DS_Store
+
+# Ignore version control files
+.git/
+.gitignore
